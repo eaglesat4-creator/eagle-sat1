@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eagle SAT — ملفات القنوات .db</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .page-hero { padding:140px 20px 80px; text-align:center; background:linear-gradient(135deg,#080b12,#0d1117,#1a1f3a); position:relative; overflow:hidden; }
+    .page-hero::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 60%,rgba(245,166,35,0.07),transparent 60%); }
+    .page-hero-content { position:relative; z-index:2; }
+    .page-hero h1 { font-size:clamp(32px,5vw,52px); font-weight:900; color:#fff; margin-bottom:14px; }
+    .page-hero p { color:var(--text-muted); font-size:15px; max-width:560px; margin:0 auto; }
+
+    /* TABS */
+    .cat-tabs { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:50px; }
+    .cat-tab { display:flex; align-items:center; gap:8px; padding:12px 22px; background:var(--card-bg); border:1.5px solid var(--border); border-radius:50px; color:var(--text-muted); font-family:'Cairo',sans-serif; font-size:14px; font-weight:700; cursor:pointer; transition:var(--transition); }
+    .cat-tab:hover { border-color:rgba(245,166,35,0.4); color:var(--primary); }
+    .cat-tab.active { background:var(--primary); border-color:var(--primary); color:#000; }
+    .cat-tab i { font-size:16px; }
+
+    /* SECTION WRAPPER */
+    .channels-section { padding:80px 0 100px; background:var(--dark); }
+    .cat-section { display:none; }
+    .cat-section.active { display:block; }
+
+    /* SECTION HEADER INLINE */
+    .cat-header { display:flex; align-items:center; gap:16px; margin-bottom:30px; padding:20px 24px; background:var(--card-bg); border:1px solid var(--border); border-radius:14px; border-right:4px solid var(--primary); }
+    .cat-header-icon { width:50px; height:50px; min-width:50px; background:rgba(245,166,35,0.12); border-radius:12px; display:flex; align-items:center; justify-content:center; }
+    .cat-header-icon i { font-size:22px; color:var(--primary); }
+    .cat-header h2 { font-size:20px; font-weight:900; color:#fff; margin-bottom:4px; }
+    .cat-header p { font-size:13px; color:var(--text-muted); }
+
+    /* CHANNEL CARDS */
+    .channels-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:20px; }
+    .ch-card { background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius); padding:22px; transition:var(--transition); position:relative; overflow:hidden; }
+    .ch-card::before { content:''; position:absolute; top:0; right:0; width:100%; height:3px; background:linear-gradient(90deg,transparent,var(--primary),transparent); opacity:0; transition:var(--transition); }
+    .ch-card:hover { border-color:rgba(245,166,35,0.3); transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.4); }
+    .ch-card:hover::before { opacity:1; }
+
+    .ch-top { display:flex; align-items:flex-start; gap:13px; margin-bottom:12px; }
+    .ch-icon { width:46px; height:46px; min-width:46px; background:rgba(245,166,35,0.1); border-radius:11px; display:flex; align-items:center; justify-content:center; }
+    .ch-icon i { font-size:20px; color:var(--primary); }
+    .ch-name { font-size:15px; font-weight:700; color:#fff; margin-bottom:5px; }
+    .ch-tags { display:flex; gap:6px; flex-wrap:wrap; }
+    .tag { font-size:10px; font-weight:700; padding:2px 9px; border-radius:50px; }
+    .tag-db { background:rgba(245,166,35,0.12); color:var(--primary); border:1px solid rgba(245,166,35,0.25); }
+    .tag-avail { background:rgba(34,197,94,0.12); color:#22c55e; border:1px solid rgba(34,197,94,0.25); }
+    .tag-soon { background:rgba(255,255,255,0.06); color:var(--text-muted); }
+    .tag-count { background:rgba(74,158,255,0.12); color:#4a9eff; border:1px solid rgba(74,158,255,0.2); }
+
+    .ch-desc { color:var(--text-muted); font-size:12px; line-height:1.7; margin-bottom:13px; }
+    .ch-sats { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px; }
+    .sat-tag { font-size:11px; background:rgba(255,255,255,0.04); color:var(--text-muted); padding:3px 9px; border-radius:6px; border:1px solid var(--border); }
+
+    .ch-btns { display:flex; gap:8px; }
+    .btn-dl { display:inline-flex; align-items:center; justify-content:center; gap:7px; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#000; font-family:'Cairo',sans-serif; font-weight:700; font-size:13px; padding:9px 16px; border-radius:50px; flex:1; transition:var(--transition); text-decoration:none; }
+    .btn-dl:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(245,166,35,0.4); }
+    .btn-dl.soon { background:rgba(255,255,255,0.07); color:var(--text-muted); cursor:not-allowed; transform:none; box-shadow:none; }
+    .btn-wa { display:inline-flex; align-items:center; gap:6px; background:rgba(37,211,102,0.1); color:#25d366; border:1px solid rgba(37,211,102,0.25); font-family:'Cairo',sans-serif; font-weight:700; font-size:12px; padding:9px 13px; border-radius:50px; transition:var(--transition); text-decoration:none; }
+    .btn-wa:hover { background:#25d366; color:#fff; }
+
+    /* HOW TO */
+    .how-section { background:var(--card-bg); border-bottom:1px solid var(--border); padding:60px 0; }
+    .how-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; }
+    .how-step { background:var(--dark); border:1px solid var(--border); border-radius:var(--radius); padding:20px; text-align:center; }
+    .how-num { width:42px; height:42px; background:var(--primary); color:#000; font-size:17px; font-weight:900; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; }
+    .how-step h4 { font-size:13px; font-weight:700; color:#fff; margin-bottom:5px; }
+    .how-step p { color:var(--text-muted); font-size:12px; line-height:1.6; }
+
+    /* NOTICE */
+    .notice { background:rgba(245,166,35,0.07); border:1px solid rgba(245,166,35,0.18); border-radius:12px; padding:14px 20px; margin-bottom:36px; display:flex; align-items:center; gap:12px; color:var(--text-muted); font-size:13px; }
+    .notice i { color:var(--primary); font-size:18px; min-width:18px; }
+
+    @media(max-width:768px){ .cat-tab span { display:none; } .cat-tab { padding:10px 14px; } }
+  </style>
+</head>
+<body>
+
+  <a href="https://wa.me/201012060642" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo"><i class="fas fa-satellite-dish"></i><span>Eagle <span class="highlight">SAT</span></span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#products">المنتجات</a></li>
+        <li><a href="software.html">💻 السوفتوير</a></li>
+        <li><a href="channels.html" style="color:var(--primary)">📡 ملفات القنوات</a></li>
+        <li><a href="index.html#contact">تواصل معنا</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <div class="hero-badge">📡 ملفات القنوات</div>
+      <h1>قوائم القنوات <span class="highlight">.db</span></h1>
+      <p>ملفات قنوات محدّثة لجميع أجهزة الاستقبال — كومبو 4 ميجا · كومبو 8 ميجا · صن بلص · استرا G</p>
+    </div>
+  </div>
+
+  <!-- HOW TO -->
+  <section class="how-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">كيفية الاستخدام</span>
+        <h2>طريقة تثبيت <span class="highlight">ملف القنوات</span></h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step"><div class="how-num">1</div><h4>حمّل الملف</h4><p>اضغط زر تحميل ملف .db المناسب لجهازك</p></div>
+        <div class="how-step"><div class="how-num">2</div><h4>فلاشة USB</h4><p>انسخ الملف على فلاشة في المجلد الجذري</p></div>
+        <div class="how-step"><div class="how-num">3</div><h4>أدخل الفلاشة</h4><p>أدخلها في منفذ USB بالرسيفر وشغّل الجهاز</p></div>
+        <div class="how-step"><div class="how-num">4</div><h4>استيراد</h4><p>إعدادات ← أدوات ← استيراد قائمة القنوات</p></div>
+        <div class="how-step"><div class="how-num">5</div><h4>اختر الملف</h4><p>اختر ملف .db من القائمة واضغط موافق</p></div>
+        <div class="how-step"><div class="how-num">6</div><h4>استمتع!</h4><p>أعد تشغيل الجهاز والقنوات جاهزة</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="channels-section">
+    <div class="container">
+
+      <div class="notice">
+        <i class="fas fa-info-circle"></i>
+        الملفات غير المتوفرة يمكن طلبها عبر واتساب وسيتم إرسالها فوراً — للمساعدة في التثبيت تواصل معنا
+      </div>
+
+      <!-- CATEGORY TABS -->
+      <div class="cat-tabs">
+        <button class="cat-tab active" onclick="showCat(this,'combo4')">
+          <i class="fas fa-database"></i><span>كومبو 4 ميجا</span>
+        </button>
+        <button class="cat-tab" onclick="showCat(this,'combo8')">
+          <i class="fas fa-database"></i><span>كومبو 8 ميجا</span>
+        </button>
+        <button class="cat-tab" onclick="showCat(this,'sunplus')">
+          <i class="fas fa-sun"></i><span>صن بلص</span>
+        </button>
+        <button class="cat-tab" onclick="showCat(this,'astrag')">
+          <i class="fas fa-satellite"></i><span>ملفات استرا G</span>
+        </button>
+      </div>
+
+      <!-- ===== كومبو 4 ميجا ===== -->
+      <div class="cat-section active" id="cat-combo4">
+        <div class="cat-header">
+          <div class="cat-header-icon"><i class="fas fa-database"></i></div>
+          <div>
+            <h2>ملفات كومبو 4 ميجا</h2>
+            <p>قوائم قنوات متنوعة بحجم 4 ميجا — عربي، إنجليزي، إسلامي، رياضي وأكثر</p>
+          </div>
+        </div>
+        <div class="channels-grid">
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-download"></i></div>
+              <div>
+                <div class="ch-name">كومبو 4 ميجا انجليزى اسلامى</div>
+                <div class="ch-tags">
+                  <span class="tag tag-db">.db</span>
+                  <span class="tag tag-avail">متاح الآن</span>
+                  <span class="tag tag-count">4 ميجا</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">ملف كومبو 4 ميجا يشمل القنوات الإنجليزية والإسلامية — جاهز للتحميل</p>
+            <div class="ch-sats">
+              <span class="sat-tag">قنوات إنجليزية</span>
+              <span class="sat-tag">قنوات إسلامية</span>
+              <span class="sat-tag">كومبو</span>
+            </div>
+            <div class="ch-btns">
+              <a href="https://drive.google.com/uc?export=download&id=1BWoKT7B6Hfti8eqqPzzRZDi87PbA__Z4"
+                 target="_blank" class="btn-dl">
+                <i class="fas fa-download"></i> تحميل الملف
+              </a>
+              <a href="https://wa.me/201012060642?text=أريد مساعدة في ملف كومبو 4 ميجا انجليزى اسلامى"
+                 target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fab fa-google-drive"></i></div>
+              <div>
+                <div class="ch-name">مجلد كومبو 4 ميجا — كامل</div>
+                <div class="ch-tags">
+                  <span class="tag tag-avail">✅ متاح الآن</span>
+                  <span class="tag tag-count">مجلد كامل</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">مجلد Google Drive يحتوي على جميع ملفات كومبو 4 ميجا — اختر الملف المناسب لجهازك مباشرة</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Google Drive</span>
+              <span class="sat-tag">جميع الملفات</span>
+              <span class="sat-tag">4 ميجا</span>
+            </div>
+            <div class="ch-btns">
+              <a href="https://drive.google.com/drive/folders/1DBQa3uVEqFCukltZRsmZpNtvetyqsH1M?usp=drive_link"
+                 target="_blank" class="btn-dl">
+                <i class="fab fa-google-drive"></i> فتح المجلد
+              </a>
+              <a href="https://wa.me/201012060642?text=أريد مساعدة في ملفات كومبو 4 ميجا"
+                 target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-plus-circle"></i></div>
+              <div>
+                <div class="ch-name">إضافة المزيد من ملفات 4 ميجا</div>
+                <div class="ch-tags"><span class="tag tag-soon">قريباً</span></div>
+              </div>
+            </div>
+            <p class="ch-desc">المزيد من ملفات كومبو 4 ميجا قيد الإضافة — تواصل معنا لطلب ملف محدد</p>
+            <div class="ch-btns">
+              <a href="https://wa.me/201012060642?text=أريد ملف كومبو 4 ميجا: "
+                 target="_blank" class="btn-dl">
+                <i class="fab fa-whatsapp"></i> اطلب ملفاً خاصاً
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== كومبو 8 ميجا ===== -->
+      <div class="cat-section" id="cat-combo8">
+        <div class="cat-header">
+          <div class="cat-header-icon"><i class="fas fa-database"></i></div>
+          <div>
+            <h2>ملفات كومبو 8 ميجا</h2>
+            <p>قوائم قنوات موسعة بحجم 8 ميجا — تغطية أوسع وقنوات أكثر</p>
+          </div>
+        </div>
+        <div class="channels-grid">
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <div class="ch-name">كومبو 8 ميجا عربى</div>
+                <div class="ch-tags">
+                  <span class="tag tag-db">.db</span>
+                  <span class="tag tag-soon">قريباً</span>
+                  <span class="tag tag-count">8 ميجا</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">ملف كومبو 8 ميجا شامل للقنوات العربية من جميع الأقمار</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Nilesat 7W</span>
+              <span class="sat-tag">Badr 26E</span>
+              <span class="sat-tag">Arabsat 30.5E</span>
+            </div>
+            <div class="ch-btns">
+              <a href="#" class="btn-dl soon"><i class="fas fa-download"></i> قريباً</a>
+              <a href="https://wa.me/201012060642?text=أريد ملف كومبو 8 ميجا عربى"
+                 target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> اطلب</a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <div class="ch-name">كومبو 8 ميجا انجليزى اسلامى</div>
+                <div class="ch-tags">
+                  <span class="tag tag-db">.db</span>
+                  <span class="tag tag-soon">قريباً</span>
+                  <span class="tag tag-count">8 ميجا</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">ملف كومبو 8 ميجا يشمل القنوات الإنجليزية والإسلامية بتغطية موسعة</p>
+            <div class="ch-sats">
+              <span class="sat-tag">قنوات إنجليزية</span>
+              <span class="sat-tag">قنوات إسلامية</span>
+              <span class="sat-tag">8 ميجا</span>
+            </div>
+            <div class="ch-btns">
+              <a href="#" class="btn-dl soon"><i class="fas fa-download"></i> قريباً</a>
+              <a href="https://wa.me/201012060642?text=أريد ملف كومبو 8 ميجا انجليزى اسلامى"
+                 target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> اطلب</a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fab fa-google-drive"></i></div>
+              <div>
+                <div class="ch-name">مجلد كومبو 8 ميجا — كامل</div>
+                <div class="ch-tags">
+                  <span class="tag tag-avail">✅ متاح الآن</span>
+                  <span class="tag tag-count">مجلد كامل</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">مجلد Google Drive يحتوي على جميع ملفات كومبو 8 ميجا — اختر الملف المناسب لجهازك مباشرة</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Google Drive</span>
+              <span class="sat-tag">جميع الملفات</span>
+              <span class="sat-tag">8 ميجا</span>
+            </div>
+            <div class="ch-btns">
+              <a href="https://drive.google.com/drive/folders/13UA844H3W4xDGWLv1rP0L22DrKXNKL-S?usp=drive_link"
+                 target="_blank" class="btn-dl">
+                <i class="fab fa-google-drive"></i> فتح المجلد
+              </a>
+              <a href="https://wa.me/201012060642?text=أريد مساعدة في ملفات كومبو 8 ميجا"
+                 target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-plus-circle"></i></div>
+              <div>
+                <div class="ch-name">طلب ملف كومبو 8 ميجا خاص</div>
+                <div class="ch-tags"><span class="tag tag-soon">طلب</span></div>
+              </div>
+            </div>
+            <p class="ch-desc">تواصل معنا لطلب ملف كومبو 8 ميجا مخصص لجهازك أو لأقمار محددة</p>
+            <div class="ch-btns">
+              <a href="https://wa.me/201012060642?text=أريد ملف كومبو 8 ميجا: "
+                 target="_blank" class="btn-dl">
+                <i class="fab fa-whatsapp"></i> اطلب ملفاً خاصاً
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== صن بلص ===== -->
+      <div class="cat-section" id="cat-sunplus">
+        <div class="cat-header">
+          <div class="cat-header-icon"><i class="fas fa-sun"></i></div>
+          <div>
+            <h2>ملفات صن بلص</h2>
+            <p>قوائم قنوات مخصصة لأجهزة صن بلص — محدّثة باستمرار</p>
+          </div>
+        </div>
+        <div class="channels-grid">
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <div class="ch-name">صن بلص — قنوات عربية</div>
+                <div class="ch-tags">
+                  <span class="tag tag-db">.db</span>
+                  <span class="tag tag-soon">قريباً</span>
+                  <span class="tag tag-count">+5000 قناة</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">ملف قنوات لأجهزة صن بلص يغطي جميع القنوات العربية والإسلامية</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Nilesat 7W</span>
+              <span class="sat-tag">Badr 26E</span>
+              <span class="sat-tag">Arabsat 30.5E</span>
+            </div>
+            <div class="ch-btns">
+              <a href="#" class="btn-dl soon"><i class="fas fa-download"></i> قريباً</a>
+              <a href="https://wa.me/201012060642?text=أريد ملف قنوات صن بلص"
+                 target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> اطلب</a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <div class="ch-name">صن بلص — قنوات عالمية</div>
+                <div class="ch-tags">
+                  <span class="tag tag-db">.db</span>
+                  <span class="tag tag-soon">قريباً</span>
+                  <span class="tag tag-count">+8000 قناة</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">ملف قنوات موسع لأجهزة صن بلص يشمل الأقمار العربية والأوروبية</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Nilesat 7W</span>
+              <span class="sat-tag">Hotbird 13E</span>
+              <span class="sat-tag">Astra 19.2E</span>
+              <span class="sat-tag">Turksat 42E</span>
+            </div>
+            <div class="ch-btns">
+              <a href="#" class="btn-dl soon"><i class="fas fa-download"></i> قريباً</a>
+              <a href="https://wa.me/201012060642?text=أريد ملف قنوات صن بلص عالمية"
+                 target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> اطلب</a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fab fa-google-drive"></i></div>
+              <div>
+                <div class="ch-name">مجلد صن بلص — كامل</div>
+                <div class="ch-tags">
+                  <span class="tag tag-avail">✅ متاح الآن</span>
+                  <span class="tag tag-count">مجلد كامل</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">مجلد Google Drive يحتوي على جميع ملفات صن بلص — اختر الملف المناسب لجهازك مباشرة</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Google Drive</span>
+              <span class="sat-tag">جميع الملفات</span>
+              <span class="sat-tag">صن بلص</span>
+            </div>
+            <div class="ch-btns">
+              <a href="https://drive.google.com/drive/folders/16sdmZWg7W-r0j_s0PgzFnGBfdncZ6z-l?usp=drive_link"
+                 target="_blank" class="btn-dl">
+                <i class="fab fa-google-drive"></i> فتح المجلد
+              </a>
+              <a href="https://wa.me/201012060642?text=أريد مساعدة في ملفات صن بلص"
+                 target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-plus-circle"></i></div>
+              <div>
+                <div class="ch-name">طلب ملف صن بلص خاص</div>
+                <div class="ch-tags"><span class="tag tag-soon">طلب</span></div>
+              </div>
+            </div>
+            <p class="ch-desc">تواصل معنا وحدد القنوات أو الأقمار التي تريدها وسنعدّ لك الملف</p>
+            <div class="ch-btns">
+              <a href="https://wa.me/201012060642?text=أريد ملف صن بلص خاص: "
+                 target="_blank" class="btn-dl">
+                <i class="fab fa-whatsapp"></i> اطلب ملفاً خاصاً
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== ملفات استرا G ===== -->
+      <div class="cat-section" id="cat-astrag">
+        <div class="cat-header">
+          <div class="cat-header-icon"><i class="fas fa-satellite"></i></div>
+          <div>
+            <h2>ملفات استرا G</h2>
+            <p>قوائم قنوات مخصصة لأجهزة استرا G — تغطية شاملة للأقمار</p>
+          </div>
+        </div>
+        <div class="channels-grid">
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <div class="ch-name">استرا G — قنوات عربية</div>
+                <div class="ch-tags">
+                  <span class="tag tag-db">.db</span>
+                  <span class="tag tag-soon">قريباً</span>
+                  <span class="tag tag-count">+6000 قناة</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">ملف قنوات لأجهزة استرا G يغطي القنوات العربية من الأقمار الرئيسية</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Nilesat 7W</span>
+              <span class="sat-tag">Badr 26E</span>
+              <span class="sat-tag">Arabsat 30.5E</span>
+            </div>
+            <div class="ch-btns">
+              <a href="#" class="btn-dl soon"><i class="fas fa-download"></i> قريباً</a>
+              <a href="https://wa.me/201012060642?text=أريد ملف قنوات استرا G عربية"
+                 target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> اطلب</a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <div class="ch-name">استرا G — قنوات أوروبية</div>
+                <div class="ch-tags">
+                  <span class="tag tag-db">.db</span>
+                  <span class="tag tag-soon">قريباً</span>
+                  <span class="tag tag-count">+7000 قناة</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">ملف قنوات لأجهزة استرا G يشمل القنوات الأوروبية من Astra وHotbird</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Astra 19.2E</span>
+              <span class="sat-tag">Hotbird 13E</span>
+              <span class="sat-tag">Eutelsat 8W</span>
+            </div>
+            <div class="ch-btns">
+              <a href="#" class="btn-dl soon"><i class="fas fa-download"></i> قريباً</a>
+              <a href="https://wa.me/201012060642?text=أريد ملف قنوات استرا G أوروبية"
+                 target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> اطلب</a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-database"></i></div>
+              <div>
+                <div class="ch-name">استرا G — كومبو شامل</div>
+                <div class="ch-tags">
+                  <span class="tag tag-db">.db</span>
+                  <span class="tag tag-soon">قريباً</span>
+                  <span class="tag tag-count">+10000 قناة</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">ملف كومبو شامل لأجهزة استرا G يجمع جميع الأقمار العربية والعالمية</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Nilesat 7W</span>
+              <span class="sat-tag">Badr 26E</span>
+              <span class="sat-tag">Astra 19.2E</span>
+              <span class="sat-tag">Hotbird 13E</span>
+              <span class="sat-tag">Turksat 42E</span>
+            </div>
+            <div class="ch-btns">
+              <a href="#" class="btn-dl soon"><i class="fas fa-download"></i> قريباً</a>
+              <a href="https://wa.me/201012060642?text=أريد ملف قنوات استرا G كومبو شامل"
+                 target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> اطلب</a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fab fa-google-drive"></i></div>
+              <div>
+                <div class="ch-name">مجلد استرا G — كامل</div>
+                <div class="ch-tags">
+                  <span class="tag tag-avail">✅ متاح الآن</span>
+                  <span class="tag tag-count">مجلد كامل</span>
+                </div>
+              </div>
+            </div>
+            <p class="ch-desc">مجلد Google Drive يحتوي على جميع ملفات استرا G — اختر الملف المناسب لجهازك مباشرة</p>
+            <div class="ch-sats">
+              <span class="sat-tag">Google Drive</span>
+              <span class="sat-tag">جميع الملفات</span>
+              <span class="sat-tag">استرا G</span>
+            </div>
+            <div class="ch-btns">
+              <a href="https://drive.google.com/drive/folders/1wAExAJbR3f_DCsavLQQaVgJeZIdt8lxn?usp=drive_link"
+                 target="_blank" class="btn-dl">
+                <i class="fab fa-google-drive"></i> فتح المجلد
+              </a>
+              <a href="https://wa.me/201012060642?text=أريد مساعدة في ملفات استرا G"
+                 target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="ch-card">
+            <div class="ch-top">
+              <div class="ch-icon"><i class="fas fa-plus-circle"></i></div>
+              <div>
+                <div class="ch-name">طلب ملف استرا G خاص</div>
+                <div class="ch-tags"><span class="tag tag-soon">طلب</span></div>
+              </div>
+            </div>
+            <p class="ch-desc">تواصل معنا لطلب ملف قنوات استرا G مخصص لأقمار أو قنوات محددة</p>
+            <div class="ch-btns">
+              <a href="https://wa.me/201012060642?text=أريد ملف استرا G خاص: "
+                 target="_blank" class="btn-dl">
+                <i class="fab fa-whatsapp"></i> اطلب ملفاً خاصاً
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none">
+        <p>© 2026 Eagle SAT · <a href="index.html" style="color:var(--primary)">العودة للرئيسية</a> · <a href="software.html" style="color:var(--text-muted)">السوفتوير</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').onclick = () => document.getElementById('navLinks').classList.toggle('open');
+
+    function showCat(btn, cat) {
+      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('cat-' + cat).classList.add('active');
+    }
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>

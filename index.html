@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eagle SAT - أجهزة الاستقبال وكاميرات المراقبة</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-satellite-dish"></i>
+        <span>Eagle <span class="highlight">SAT</span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#products">المنتجات</a></li>
+        <li><a href="software.html">💻 السوفتوير</a></li>
+        <li><a href="channels.html">📡 ملفات القنوات</a></li>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+
+    <!-- BIG BACKGROUND TEXT -->
+    <div class="hero-bg-text" aria-hidden="true">
+      <span class="bg-text-eagle">EAGLE</span>
+      <span class="bg-text-sat">SAT</span>
+    </div>
+
+    <!-- Animated particles -->
+    <div class="hero-particles">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">🦅 متجر Eagle SAT</div>
+      <h1>كل ما تحتاجه<br/><span class="highlight">للاستقبال والمراقبة</span></h1>
+      <p>أجهزة استقبال القنوات الفضائية والعالمية · كاميرات المراقبة ومستلزماتها · صيانة متخصصة</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn btn-primary">تصفح المنتجات</a>
+        <a href="#contact" class="btn btn-outline">تواصل معنا</a>
+      </div>
+    </div>
+
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats">
+    <div class="container">
+      <div class="stat-item">
+        <i class="fas fa-satellite-dish"></i>
+        <h3>+500</h3>
+        <p>جهاز مباع</p>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-camera"></i>
+        <h3>+200</h3>
+        <p>مشروع مراقبة</p>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-tools"></i>
+        <h3>+1000</h3>
+        <p>عملية صيانة</p>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-star"></i>
+        <h3>98%</h3>
+        <p>رضا العملاء</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">منتجاتنا</span>
+        <h2>تشكيلة واسعة من <span class="highlight">أفضل الأجهزة</span></h2>
+        <p>نوفر أحدث أجهزة الاستقبال وكاميرات المراقبة بأفضل الأسعار</p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-cat="all">الكل</button>
+        <button class="tab" data-cat="sat">الأقمار الصناعية</button>
+        <button class="tab" data-cat="iptv">IPTV</button>
+        <button class="tab" data-cat="cam">كاميرات المراقبة</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+
+        <!-- Satellite Receivers -->
+        <div class="product-card" data-cat="sat">
+          <div class="product-icon"><i class="fas fa-satellite-dish"></i></div>
+          <div class="product-badge">الأكثر مبيعاً</div>
+          <h3>رسيفر فضائي HD</h3>
+          <p>جهاز استقبال بدقة عالية لجميع القنوات الفضائية المشفرة والمجانية</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> دقة Full HD 1080p</li>
+            <li><i class="fas fa-check"></i> دعم Biss & Powervu</li>
+            <li><i class="fas fa-check"></i> USB & WiFi مدمج</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card" data-cat="sat">
+          <div class="product-icon"><i class="fas fa-broadcast-tower"></i></div>
+          <h3>رسيفر 4K Ultra HD</h3>
+          <p>أحدث أجهزة الاستقبال بدقة 4K مع دعم HDR لتجربة مشاهدة استثنائية</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> دقة 4K HDR</li>
+            <li><i class="fas fa-check"></i> معالج قوي ثماني النواة</li>
+            <li><i class="fas fa-check"></i> Android TV مدمج</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <!-- IPTV -->
+        <div class="product-card product-card-img" data-cat="iptv">
+          <div class="product-badge new">جديد</div>
+          <div class="product-img-wrap" style="background:#000;height:190px">
+            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500&q=80"
+                 alt="IPTV Sports" style="width:100%;height:100%;object-fit:cover;opacity:0.85;border-radius:10px"/>
+          </div>
+          <h3>IPTV رياضي — beIN & OSN</h3>
+          <p>شاهد أحدث مباريات كرة القدم وجميع الرياضات الحصرية عبر الإنترنت بجودة 4K</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> beIN Sports HD & 4K</li>
+            <li><i class="fas fa-check"></i> دوري أبطال أوروبا</li>
+            <li><i class="fas fa-check"></i> Premier League & La Liga</li>
+            <li><i class="fas fa-check"></i> UFC & Boxing حصري</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="iptv">
+          <div class="product-badge" style="background:#e50914;color:#fff">Netflix</div>
+          <div class="product-img-wrap" style="background:#000;height:190px">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&q=80"
+                 alt="Movies IPTV" style="width:100%;height:100%;object-fit:cover;opacity:0.85;border-radius:10px"/>
+          </div>
+          <h3>IPTV أفلام ومسلسلات</h3>
+          <p>آلاف الأفلام العالمية والمسلسلات الحصرية مترجمة بجودة عالية على شاشتك</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> +10,000 فيلم ومسلسل</li>
+            <li><i class="fas fa-check"></i> أفلام حصرية مترجمة</li>
+            <li><i class="fas fa-check"></i> جودة 4K HDR</li>
+            <li><i class="fas fa-check"></i> تحديث يومي للمحتوى</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="iptv">
+          <div class="product-img-wrap" style="background:#000;height:190px">
+            <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=500&q=80"
+                 alt="IPTV Channels" style="width:100%;height:100%;object-fit:cover;opacity:0.85;border-radius:10px"/>
+          </div>
+          <h3>باقة قنوات عالمية +5000</h3>
+          <p>اشتراك IPTV شامل بأكثر من 5000 قناة عربية وعالمية وإخبارية بدون انقطاع</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> +5000 قناة عالمية</li>
+            <li><i class="fas fa-check"></i> قنوات عربية وأجنبية</li>
+            <li><i class="fas fa-check"></i> استقرار 99.9%</li>
+            <li><i class="fas fa-check"></i> دعم فني 24/7</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="iptv">
+          <div class="product-badge" style="background:#1db954;color:#fff">Kids</div>
+          <div class="product-img-wrap" style="background:#000;height:190px">
+            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&q=80"
+                 alt="IPTV Family" style="width:100%;height:100%;object-fit:cover;opacity:0.85;border-radius:10px"/>
+          </div>
+          <h3>باقة الأطفال والعائلة</h3>
+          <p>قنوات الأطفال وأفلام العائلة الحصرية من Disney و Cartoon Network وأكثر</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> Disney+ & Kids Channels</li>
+            <li><i class="fas fa-check"></i> أفلام كرتون حصرية</li>
+            <li><i class="fas fa-check"></i> محتوى آمن للأطفال</li>
+            <li><i class="fas fa-check"></i> قنوات تعليمية</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <!-- Cameras -->
+        <!-- EZVIZ Products -->
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-badge">EZVIZ</div>
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/ezviz_cs_c6n_a0_1c2wfr_c6n_1080p_indoor_wi_fi_1596120.jpg"
+                 alt="EZVIZ C6N"
+                 onerror="this.onerror=null;this.src='https://i.imgur.com/ZwYUmjQ.png';"/>
+          </div>
+          <h3>EZVIZ C6N — كاميرا داخلية 360°</h3>
+          <p>كاميرا داخلية ذكية بدقة 3 ميغابكسل مع تتبع تلقائي للحركة ورؤية ليلية</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> دقة 3MP Full HD</li>
+            <li><i class="fas fa-check"></i> تتبع 360° تلقائي</li>
+            <li><i class="fas fa-check"></i> رؤية ليلية 10م</li>
+            <li><i class="fas fa-check"></i> صوت ثنائي الاتجاه</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-badge">EZVIZ</div>
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/ezviz_cs_h3_r100_1j4wkfl_h3_3k_indoor_smart_1618439.jpg"
+                 alt="EZVIZ H3 3K"
+                 onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/51S7EiRTvZL._AC_SX425_.jpg';"/>
+          </div>
+          <h3>EZVIZ H3 3K — كاميرا داخلية ذكية</h3>
+          <p>كاميرا منزلية بدقة 3K مع ذكاء اصطناعي لكشف الأشخاص والمركبات</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> دقة 3K فائقة</li>
+            <li><i class="fas fa-check"></i> كشف بالذكاء الاصطناعي</li>
+            <li><i class="fas fa-check"></i> تسجيل محلي 256GB</li>
+            <li><i class="fas fa-check"></i> تنبيهات فورية</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-badge">EZVIZ</div>
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/ezviz_cs_c3w_a0_3h4wfrl_c3w_color_night_vision_1574820.jpg"
+                 alt="EZVIZ C3W"
+                 onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/51yCCRNzdnL._AC_SX425_.jpg';"/>
+          </div>
+          <h3>EZVIZ C3W — كاميرا خارجية ملونة</h3>
+          <p>كاميرا خارجية بألوان كاملة ليلاً ونهاراً مع ضوء ردع ومنبه صوتي</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> ألوان ليلية Color Night</li>
+            <li><i class="fas fa-check"></i> ضوء وصفارة ردع</li>
+            <li><i class="fas fa-check"></i> مقاومة الماء IP67</li>
+            <li><i class="fas fa-check"></i> رؤية 30 متر</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-badge new">جديد</div>
+          <div class="product-badge-ezviz">EZVIZ</div>
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/ezviz_cs_eb3_r100_2c3wl_eb3_2k_standalone_smart_1634033.jpg"
+                 alt="EZVIZ EB3"
+                 onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/51Z6s3AFQVL._AC_SX425_.jpg';"/>
+          </div>
+          <h3>EZVIZ EB3 2K — كاميرا بطارية</h3>
+          <p>كاميرا خارجية لاسلكية بالكامل تعمل بالبطارية حتى 120 يوم بدون شحن</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> دقة 2K عالية</li>
+            <li><i class="fas fa-check"></i> بطارية 120 يوم</li>
+            <li><i class="fas fa-check"></i> لاسلكي 100%</li>
+            <li><i class="fas fa-check"></i> تركيب سهل بدون أسلاك</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-badge">EZVIZ</div>
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/ezviz_cs_c8pf_a0_3h40wfl_c8pf_outdoor_smart_home_1618440.jpg"
+                 alt="EZVIZ C8PF"
+                 onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/51SumxLTwNL._AC_SX425_.jpg';"/>
+          </div>
+          <h3>EZVIZ C8PF — كاميرا خارجية PTZ</h3>
+          <p>كاميرا خارجية بتقنية التحريك الأفقي والرأسي مع تتبع تلقائي للحركة</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> تحريك 340° أفقي</li>
+            <li><i class="fas fa-check"></i> دقة 5MP</li>
+            <li><i class="fas fa-check"></i> رؤية ليلية ملونة</li>
+            <li><i class="fas fa-check"></i> مقاومة IP67</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-badge">EZVIZ</div>
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/ezviz_cs_db1c_a0_4b2wpfr_db1c_wi_fi_video_doorbell_1607412.jpg"
+                 alt="EZVIZ DB1C"
+                 onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/41xh5HVQB8L._AC_SX425_.jpg';"/>
+          </div>
+          <h3>EZVIZ DB1C — كاميرا جرس الباب</h3>
+          <p>كاميرا جرس ذكي للباب الأمامي مع اتصال مرئي فوري على هاتفك</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> دقة Full HD</li>
+            <li><i class="fas fa-check"></i> جرس ذكي WiFi</li>
+            <li><i class="fas fa-check"></i> رؤية ليلية</li>
+            <li><i class="fas fa-check"></i> تحدث مع الزوار عن بُعد</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-badge">الأفضل</div>
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/hikvision_ds_2cd2143g2_i_2_8mm_acufocus_fixed_dome_network_1667944.jpg"
+                 alt="كاميرا IP"
+                 onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/51F6wV3NUVL._AC_SX425_.jpg';"/>
+          </div>
+          <h3>كاميرا مراقبة IP</h3>
+          <p>كاميرا مراقبة ذكية عبر الإنترنت مع رؤية ليلية ومتابعة عن بُعد</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> دقة 4MP & 8MP</li>
+            <li><i class="fas fa-check"></i> رؤية ليلية 30م</li>
+            <li><i class="fas fa-check"></i> مراقبة عبر الهاتف</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/hikvision_ds_7208hghi_k2_8_channel_1080p_turbo_1462915.jpg"
+                 alt="DVR System"
+                 onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/61pCNk3fJdL._AC_SX425_.jpg';"/>
+          </div>
+          <h3>نظام كاميرات DVR</h3>
+          <p>منظومة مراقبة متكاملة مع مسجل رقمي وشاشة وكاميرات متعددة</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> 4 / 8 / 16 كاميرا</li>
+            <li><i class="fas fa-check"></i> تسجيل مستمر 24/7</li>
+            <li><i class="fas fa-check"></i> تنبيهات الحركة</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card product-card-img" data-cat="cam">
+          <div class="product-img-wrap">
+            <img src="https://www.bhphotovideo.com/images/images500x500/hikvision_ds_2cd2t47g2_l_4mm_colorvu_fixed_bullet_network_1667967.jpg"
+                 alt="مستلزمات مراقبة"
+                 onerror="this.onerror=null;this.src='https://m.media-amazon.com/images/I/71xCfG3DsOL._AC_SX425_.jpg';"/>
+          </div>
+          <h3>مستلزمات المراقبة</h3>
+          <p>كابلات، محولات، هارد ديسك، حوامل، ومحولات كهربائية بجودة عالية</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> كابلات Coaxial & CAT6</li>
+            <li><i class="fas fa-check"></i> هارد ديسك للمراقبة</li>
+            <li><i class="fas fa-check"></i> حوامل وإكسسوارات</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+        <div class="product-card" data-cat="sat">
+          <div class="product-icon"><i class="fas fa-wifi"></i></div>
+          <h3>طبق استقبال + LNB</h3>
+          <p>أطباق استقبال من جميع الأحجام مع LNB عالي الجودة لاستقبال أفضل</p>
+          <ul class="product-features">
+            <li><i class="fas fa-check"></i> أحجام 60cm - 180cm</li>
+            <li><i class="fas fa-check"></i> Single & Quattro LNB</li>
+            <li><i class="fas fa-check"></i> مقاوم للأحوال الجوية</li>
+          </ul>
+          <a href="#contact" class="btn btn-card">استفسر الآن</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IPTV SHOWCASE SECTION ===== -->
+  <section class="iptv-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">🔥 IPTV حصري</span>
+        <h2>شاهد كل شيء على <span class="highlight">شاشتك</span></h2>
+        <p>أفلام حصرية · مباريات مباشرة · مسلسلات عالمية · قنوات رياضية 4K</p>
+      </div>
+
+      <!-- FEATURED BANNER -->
+      <div class="iptv-banner">
+        <div class="iptv-banner-img">
+          <img src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?w=1200&q=80" alt="IPTV Banner"/>
+          <div class="iptv-banner-overlay">
+            <div class="iptv-live-badge"><i class="fas fa-circle"></i> بث مباشر</div>
+            <h2>مباريات حصرية على الهواء مباشرة</h2>
+            <p>شاهد أقوى المباريات بجودة 4K بدون تقطيع</p>
+            <a href="#contact" class="btn btn-primary"><i class="fas fa-play"></i> اشترك الآن</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- IPTV FEATURES GRID -->
+      <div class="iptv-features">
+
+        <div class="iptv-feat-card">
+          <div class="iptv-feat-img">
+            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=600&q=80" alt="Sports"/>
+            <div class="iptv-feat-overlay">
+              <i class="fas fa-futbol"></i>
+            </div>
+          </div>
+          <div class="iptv-feat-info">
+            <span class="iptv-tag red">🔴 مباشر</span>
+            <h3>كرة القدم الحصرية</h3>
+            <p>دوري أبطال أوروبا · Premier League · La Liga · الدوري المصري</p>
+            <div class="iptv-channels">
+              <span>beIN Sports</span>
+              <span>OSN Sport</span>
+              <span>MBC Sport</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="iptv-feat-card">
+          <div class="iptv-feat-img">
+            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80" alt="Movies"/>
+            <div class="iptv-feat-overlay">
+              <i class="fas fa-film"></i>
+            </div>
+          </div>
+          <div class="iptv-feat-info">
+            <span class="iptv-tag gold">⭐ حصري</span>
+            <h3>أفلام عالمية 4K</h3>
+            <p>أحدث الأفلام الهوليوودية مترجمة بجودة 4K HDR قبل صدورها</p>
+            <div class="iptv-channels">
+              <span>Hollywood</span>
+              <span>Action</span>
+              <span>Thriller</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="iptv-feat-card">
+          <div class="iptv-feat-img">
+            <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=600&q=80" alt="Series"/>
+            <div class="iptv-feat-overlay">
+              <i class="fas fa-play-circle"></i>
+            </div>
+          </div>
+          <div class="iptv-feat-info">
+            <span class="iptv-tag blue">📺 VOD</span>
+            <h3>مسلسلات وبرامج</h3>
+            <p>آلاف المسلسلات العربية والعالمية محدّثة يومياً على مدار الساعة</p>
+            <div class="iptv-channels">
+              <span>Netflix</span>
+              <span>MBC</span>
+              <span>OSN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="iptv-feat-card">
+          <div class="iptv-feat-img">
+            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80" alt="Kids"/>
+            <div class="iptv-feat-overlay">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="iptv-feat-info">
+            <span class="iptv-tag green">👨‍👩‍👧 عائلي</span>
+            <h3>قنوات الأطفال والعائلة</h3>
+            <p>محتوى عائلي آمن وقنوات أطفال من Disney وCartoon Network وأكثر</p>
+            <div class="iptv-channels">
+              <span>Disney+</span>
+              <span>Cartoon</span>
+              <span>Kids</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- IPTV STATS -->
+      <div class="iptv-stats">
+        <div class="iptv-stat"><i class="fas fa-tv"></i><h4>+5000</h4><p>قناة عالمية</p></div>
+        <div class="iptv-stat"><i class="fas fa-film"></i><h4>+10,000</h4><p>فيلم ومسلسل</p></div>
+        <div class="iptv-stat"><i class="fas fa-futbol"></i><h4>24/7</h4><p>مباريات مباشرة</p></div>
+        <div class="iptv-stat"><i class="fas fa-bolt"></i><h4>4K HDR</h4><p>جودة فائقة</p></div>
+        <div class="iptv-stat"><i class="fas fa-wifi"></i><h4>99.9%</h4><p>استقرار الخدمة</p></div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px">
+        <a href="#contact" class="btn btn-primary" style="font-size:16px;padding:16px 40px">
+          <i class="fas fa-play"></i> اشترك في خدمة IPTV الآن
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SURVEILLANCE SHOWCASE ===== -->
+  <section class="surveillance-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">📷 أنظمة المراقبة</span>
+        <h2>حماية منزلك و<span class="highlight">عملك</span> على مدار الساعة</h2>
+        <p>أنظمة مراقبة متكاملة بأحدث التقنيات — رؤية ليلية · كشف ذكي · مراقبة عن بُعد</p>
+      </div>
+
+      <div class="surv-grid">
+
+        <!-- BIG BANNER -->
+        <div class="surv-banner">
+          <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1000&q=80" alt="نظام مراقبة"/>
+          <div class="surv-banner-overlay">
+            <span class="surv-live-tag"><i class="fas fa-circle"></i> مراقبة مباشرة</span>
+            <h3>أنظمة DVR & NVR متكاملة</h3>
+            <p>تسجيل مستمر 24/7 مع إمكانية المشاهدة عن بُعد من هاتفك</p>
+          </div>
+        </div>
+
+        <!-- SIDE CARDS -->
+        <div class="surv-side">
+
+          <div class="surv-card">
+            <div class="surv-card-img">
+              <img src="https://images.unsplash.com/photo-1621609764180-2ca554a9d6f2?w=500&q=80" alt="كاميرا PTZ"/>
+              <div class="surv-overlay"><i class="fas fa-video"></i></div>
+            </div>
+            <div class="surv-card-info">
+              <span class="surv-tag">PTZ</span>
+              <h4>كاميرات PTZ دوّارة</h4>
+              <p>تغطية 360° كاملة مع تتبع تلقائي للحركة</p>
+            </div>
+          </div>
+
+          <div class="surv-card">
+            <div class="surv-card-img">
+              <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80" alt="رؤية ليلية"/>
+              <div class="surv-overlay"><i class="fas fa-moon"></i></div>
+            </div>
+            <div class="surv-card-info">
+              <span class="surv-tag night">رؤية ليلية</span>
+              <h4>رؤية ليلية حتى 50 متر</h4>
+              <p>صورة واضحة في الظلام الكامل بتقنية IR</p>
+            </div>
+          </div>
+
+          <div class="surv-card">
+            <div class="surv-card-img">
+              <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=500&q=80" alt="مراقبة موبايل"/>
+              <div class="surv-overlay"><i class="fas fa-mobile-alt"></i></div>
+            </div>
+            <div class="surv-card-info">
+              <span class="surv-tag mobile">موبايل</span>
+              <h4>مراقبة عبر الهاتف</h4>
+              <p>شاهد كاميراتك في أي مكان وأي وقت</p>
+            </div>
+          </div>
+
+          <div class="surv-card">
+            <div class="surv-card-img">
+              <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=500&q=80" alt="كاميرا خارجية"/>
+              <div class="surv-overlay"><i class="fas fa-shield-alt"></i></div>
+            </div>
+            <div class="surv-card-info">
+              <span class="surv-tag outdoor">خارجية</span>
+              <h4>كاميرات خارجية IP67</h4>
+              <p>مقاومة للماء والغبار لجميع الظروف الجوية</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FEATURES ROW -->
+      <div class="surv-features">
+        <div class="surv-feat"><i class="fas fa-eye"></i><span>رؤية ليلية ملونة</span></div>
+        <div class="surv-feat"><i class="fas fa-brain"></i><span>كشف AI ذكي</span></div>
+        <div class="surv-feat"><i class="fas fa-hdd"></i><span>تسجيل محلي وسحابي</span></div>
+        <div class="surv-feat"><i class="fas fa-bell"></i><span>تنبيهات فورية</span></div>
+        <div class="surv-feat"><i class="fas fa-mobile-alt"></i><span>تطبيق هاتف</span></div>
+        <div class="surv-feat"><i class="fas fa-wrench"></i><span>تركيب وصيانة</span></div>
+      </div>
+
+      <div style="text-align:center;margin-top:36px">
+        <a href="#contact" class="btn btn-primary" style="font-size:15px;padding:14px 36px">
+          <i class="fas fa-camera"></i> اطلب نظام مراقبة الآن
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">خدماتنا</span>
+        <h2>خدمات <span class="highlight">متكاملة</span> لك</h2>
+        <p>نقدم خدمات شاملة من البيع إلى التركيب والصيانة</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-satellite-dish"></i>
+          </div>
+          <h3>تركيب أطباق الاستقبال</h3>
+          <p>تركيب وضبط أطباق الاستقبال الفضائي باحترافية عالية لضمان أفضل استقبال للقنوات</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-camera-retro"></i>
+          </div>
+          <h3>تركيب كاميرات المراقبة</h3>
+          <p>تصميم وتركيب أنظمة المراقبة المنزلية والتجارية بأحدث التقنيات</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-wrench"></i>
+          </div>
+          <h3>صيانة الكاميرات</h3>
+          <p>صيانة شاملة وإصلاح جميع أعطال كاميرات المراقبة وأجهزة التسجيل</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-tv"></i>
+          </div>
+          <h3>إعداد IPTV</h3>
+          <p>إعداد وتفعيل خدمات IPTV للقنوات العالمية والرياضية على جميع الأجهزة</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>الدعم الفني</h3>
+          <p>فريق دعم فني متخصص متاح لمساعدتك وحل أي مشكلة تواجهها</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <h3>التوصيل والتركيب</h3>
+          <p>خدمة توصيل وتركيب في الموقع بواسطة فريق متخصص ومدرب</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY US ===== -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <div class="why-content">
+        <div class="why-text">
+          <span class="section-badge">لماذا Eagle SAT؟</span>
+          <h2>نحن الخيار <span class="highlight">الأمثل</span> لك</h2>
+          <p>سنوات من الخبرة في مجال تقنيات الاستقبال وأنظمة المراقبة تجعلنا الوجهة الأولى لعملائنا</p>
+          <div class="why-items">
+            <div class="why-item">
+              <div class="why-icon"><i class="fas fa-medal"></i></div>
+              <div>
+                <h4>منتجات أصلية معتمدة</h4>
+                <p>نتعامل مع أفضل الماركات العالمية ونضمن أصالة جميع منتجاتنا</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+              <div>
+                <h4>ضمان على جميع المنتجات</h4>
+                <p>ضمان شامل على جميع الأجهزة مع خدمة ما بعد البيع</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon"><i class="fas fa-dollar-sign"></i></div>
+              <div>
+                <h4>أسعار تنافسية</h4>
+                <p>أفضل الأسعار في السوق مع خيارات دفع مريحة</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-icon"><i class="fas fa-clock"></i></div>
+              <div>
+                <h4>خدمة سريعة</h4>
+                <p>فريق متخصص يصل إليك في أسرع وقت ممكن</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="why-image">
+          <div class="why-card-float card-1">
+            <i class="fas fa-satellite-dish"></i>
+            <span>أجهزة فضائية</span>
+          </div>
+          <div class="why-card-float card-2">
+            <i class="fas fa-camera"></i>
+            <span>كاميرات مراقبة</span>
+          </div>
+          <div class="why-card-float card-3">
+            <i class="fas fa-tv"></i>
+            <span>IPTV عالمي</span>
+          </div>
+          <div class="why-main-circle">
+            <i class="fas fa-satellite"></i>
+            <span>Eagle SAT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">تواصل معنا</span>
+        <h2>نحن هنا <span class="highlight">لمساعدتك</span></h2>
+        <p>تواصل معنا للاستفسار عن أي منتج أو خدمة</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4>اتصل بنا</h4>
+            <a href="tel:01012060642"><p>01012060642</p></a>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-whatsapp"></i>
+            <h4>واتساب 1</h4>
+            <a href="https://wa.me/201012060642" target="_blank"><p>01012060642</p></a>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-whatsapp"></i>
+            <h4>واتساب 2</h4>
+            <a href="https://wa.me/201111024681" target="_blank"><p>01111024681</p></a>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-facebook-f"></i>
+            <h4>فيسبوك</h4>
+            <p>Eagle SAT</p>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>الموقع</h4>
+            <a href="https://maps.google.com/?q=6+مصطفى+عناني+السبع+عمارات+مصر+الجديدة+القاهرة" target="_blank"><p>6 مصطفى عناني، السبع عمارات، مصر الجديدة</p></a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <h3>أرسل رسالتك</h3>
+          <div class="form-group">
+            <input type="text" placeholder="اسمك الكريم" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="رقم هاتفك" required />
+          </div>
+          <div class="form-group">
+            <select>
+              <option value="">نوع الاستفسار</option>
+              <option>أجهزة استقبال فضائي</option>
+              <option>أجهزة IPTV</option>
+              <option>كاميرات مراقبة</option>
+              <option>صيانة</option>
+              <option>أخرى</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea rows="4" placeholder="رسالتك..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">
+            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <i class="fas fa-satellite-dish"></i>
+            <span>Eagle <span class="highlight">SAT</span></span>
+          </div>
+          <p>متجرك الأول لأجهزة الاستقبال الفضائي، IPTV، وكاميرات المراقبة بأعلى جودة وأفضل سعر.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#products">المنتجات</a></li>
+            <li><a href="#services">الخدمات</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+          </ul>
+        </div>
+        <div class="footer-products">
+          <h4>منتجاتنا</h4>
+          <ul>
+            <li><a href="#">رسيفر فضائي HD</a></li>
+            <li><a href="#">رسيفر 4K</a></li>
+            <li><a href="#">أجهزة IPTV</a></li>
+            <li><a href="#">كاميرات مراقبة</a></li>
+            <li><a href="#">أطباق الاستقبال</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>معلومات الاتصال</h4>
+          <ul>
+            <li><i class="fas fa-phone-alt"></i> <a href="tel:01012060642" style="color:inherit">01012060642</a></li>
+            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201012060642" target="_blank" style="color:inherit">01012060642</a></li>
+            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201111024681" target="_blank" style="color:inherit">01111024681</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/?q=6+مصطفى+عناني+السبع+عمارات+مصر+الجديدة+القاهرة" target="_blank" style="color:inherit">6 مصطفى عناني، السبع عمارات، مصر الجديدة</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Eagle SAT. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== QUICK LINKS SECTION ===== -->
+  <section class="quick-links-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">تحميلات مجانية</span>
+        <h2>السوفتوير و<span class="highlight">ملفات القنوات</span></h2>
+        <p>حمّل أحدث السوفتوير وملفات قنوات .db لجهازك مجاناً</p>
+      </div>
+      <div class="ql-grid">
+        <a href="software.html" class="ql-card">
+          <div class="ql-icon"><i class="fas fa-laptop-code"></i></div>
+          <div class="ql-text">
+            <h3>السوفتوير والتحديثات</h3>
+            <p>آخر firmware لأجهزة Openbox · Tiger · Starsat · Geant وغيرها</p>
+          </div>
+          <i class="fas fa-arrow-left ql-arrow"></i>
+        </a>
+        <a href="channels.html" class="ql-card">
+          <div class="ql-icon"><i class="fas fa-database"></i></div>
+          <div class="ql-text">
+            <h3>ملفات القنوات .db</h3>
+            <p>قوائم قنوات محدّثة تشمل النايلسات والبدر والعرب سات وأكثر</p>
+          </div>
+          <i class="fas fa-arrow-left ql-arrow"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAP SECTION ===== -->
+  <section class="map-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">موقعنا</span>
+        <h2>زورنا على <span class="highlight">الخريطة</span></h2>
+        <p>6 مصطفى عناني، السبع عمارات، مصر الجديدة، القاهرة</p>
+      </div>
+      <div class="map-wrapper">
+        <iframe
+          src="https://maps.google.com/maps?q=السبع+عمارات+مصر+الجديدة+القاهرة&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="420" style="border:0; border-radius:14px; filter:grayscale(20%) contrast(1.05);"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <a href="https://maps.google.com/?q=6+مصطفى+عناني+السبع+عمارات+مصر+الجديدة+القاهرة"
+           target="_blank" class="map-btn">
+          <i class="fas fa-directions"></i> احصل على الاتجاهات
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+  // Camera image fallback manager
+  (function() {
+    // Map of camera model to multiple image sources to try
+    const cameraImages = {
+      'C6N':  [
+        'https://www.bhphotovideo.com/images/images500x500/ezviz_cs_c6n_a0_1c2wfr_c6n_1080p_indoor_wi_fi_1596120.jpg',
+        'https://m.media-amazon.com/images/I/51xm3pCerlL._AC_SX425_.jpg',
+        'https://images-na.ssl-images-amazon.com/images/I/51xm3pCerlL.jpg'
+      ],
+      'H3':   [
+        'https://www.bhphotovideo.com/images/images500x500/ezviz_cs_h3_r100_1j4wkfl_h3_3k_indoor_smart_1618439.jpg',
+        'https://m.media-amazon.com/images/I/41HV93OQJZL._AC_SX425_.jpg'
+      ],
+      'C3W':  [
+        'https://www.bhphotovideo.com/images/images500x500/ezviz_cs_c3w_a0_3h4wfrl_c3w_color_night_vision_1574820.jpg',
+        'https://m.media-amazon.com/images/I/51yCCRNzdnL._AC_SX425_.jpg'
+      ],
+      'EB3':  [
+        'https://www.bhphotovideo.com/images/images500x500/ezviz_cs_eb3_r100_2c3wl_eb3_2k_standalone_smart_1634033.jpg',
+        'https://m.media-amazon.com/images/I/51Z6s3AFQVL._AC_SX425_.jpg'
+      ],
+      'C8PF': [
+        'https://www.bhphotovideo.com/images/images500x500/ezviz_cs_c8pf_a0_3h40wfl_c8pf_outdoor_smart_home_1618440.jpg',
+        'https://m.media-amazon.com/images/I/51SumxLTwNL._AC_SX425_.jpg'
+      ],
+      'DB1C': [
+        'https://www.bhphotovideo.com/images/images500x500/ezviz_cs_db1c_a0_4b2wpfr_db1c_wi_fi_video_doorbell_1607412.jpg',
+        'https://m.media-amazon.com/images/I/41xh5HVQB8L._AC_SX425_.jpg'
+      ]
+    };
+
+    document.querySelectorAll('.product-img-wrap img').forEach(img => {
+      const alt = img.getAttribute('alt') || '';
+      img.addEventListener('error', function() {
+        // Find the model key
+        const modelKey = Object.keys(cameraImages).find(k => alt.includes(k));
+        if (modelKey) {
+          const sources = cameraImages[modelKey];
+          const currentSrc = this.src;
+          const currentIdx = sources.indexOf(currentSrc);
+          const nextIdx = currentIdx + 1;
+          if (nextIdx < sources.length) {
+            this.src = sources[nextIdx];
+          } else {
+            // Final fallback: show camera icon
+            this.parentNode.innerHTML = `
+              <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;">
+                <i class="fas fa-camera" style="font-size:40px;color:var(--primary);opacity:0.8"></i>
+                <span style="font-size:11px;color:var(--text-muted)">${alt}</span>
+              </div>`;
+          }
+        }
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
